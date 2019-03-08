@@ -1,11 +1,11 @@
 {
-    "name": "cordova-plugin-client-certificate",
-    "description": "Client certificate authentication for your Cordova app.",
-    "version": "0.0.4-dev",
-    "homepage": "https://github.com/mwaylabs/cordova-plugin-client-certificate",
+    "name": "cordova-plugin-client-certificate-support",
+    "description": "Client certificate authentication support plugin for your Cordova app.",
+    "version": "0.0.5-dev",
+    "homepage": "https://github.com/ccafix/cordova-plugin-client-certificate-support",
     "repository": {
         "type": "git",
-        "url": "https://github.com/mwaylabs/cordova-plugin-client-certificate.git"
+        "url": "https://github.com/ccafix/cordova-plugin-client-certificate-support.git"
     },
     "bugs": {
       "url": "https://github.com/mwaylabs/cordova-plugin-client-certificate/issues"

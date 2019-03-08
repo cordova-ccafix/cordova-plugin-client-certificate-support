@@ -21,17 +21,17 @@
 <plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
     xmlns:rim="http://www.blackberry.com/ns/widgets"
     xmlns:android="http://schemas.android.com/apk/res/android"
-    id="cordova-plugin-client-certificate"
-    version="0.0.4-dev">
+    id="cordova-plugin-client-certificate-support"
+    version="0.0.5-dev">
 
-    <name>Client Certificate</name>
+    <name>Client certificate authentication support</name>
 
-    <description>Cordova Client Certificate Plugin</description>
+    <description>Client certificate authentication support plugin</description>
 
     <license>Apache 2.0</license>
     <keywords>client, certificate, authentication, client certificate</keywords>
-    <repo>https://github.com/mwaylabs/cordova-plugin-client-certificate.git</repo>
-    <issue>https://github.com/mwaylabs/cordova-plugin-client-certificate/issues</issue>
+    <repo>https://github.com/ccafix/cordova-plugin-client-certificate-support.git</repo>
+    <issue>https://github.com/ccafix/cordova-plugin-client-certificate-support/issues</issue>
 
     <!-- ios -->
     <platform name="ios">
