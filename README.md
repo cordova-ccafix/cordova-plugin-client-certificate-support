@@ -24,7 +24,7 @@ Specific for iOS:
 
 Specific for Android:
 
-- Android platform implementation was replaced with an implementation based on, [`johannes-staehlin/cordova-client-cert-authentication`](https://github.com/johannes-staehlin/cordova-client-cert-authentication), which is not expected to work with the JavaScript API at all.
+- Android platform implementation was replaced with an implementation based on [`johannes-staehlin/cordova-client-cert-authentication`](https://github.com/johannes-staehlin/cordova-client-cert-authentication), which is not supported by the JavaScript API at all.
 
 ## Usage
 
@@ -159,7 +159,6 @@ Run the code
 ## For future consideration
 
 - Prompt the user for a p12 certificate password on iOS, if necessary. Native dialog prompt would be ideal; using JavaScript on this plugin or callback to the application code would also be possible.
-- Combine with johannes-staehlin/cordova-client-cert-authentication, if possible
 - Add Windows platform
 
 ## More Info
