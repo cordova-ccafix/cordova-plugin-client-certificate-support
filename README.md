@@ -26,6 +26,8 @@ Specific for Android:
 
 - Android platform implementation was replaced with an implementation that is almost the same as [`johannes-staehlin/cordova-client-cert-authentication`](https://github.com/johannes-staehlin/cordova-client-cert-authentication), which does not work with any JavaScript API at all (see documentation below).
 
+This combined plugin version for iOS and Android was sponsored by [Neptune Software](https://www.neptune-software.com/), a low-code enterprise software platform company.
+
 ## Usage
 
 ## Prerequisites
