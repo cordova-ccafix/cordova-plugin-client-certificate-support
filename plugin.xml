@@ -94,7 +94,7 @@
                     <key>UTTypeTagSpecification</key>
                     <dict>
                         <key>public.filename-extension</key>
-                        <string>myp12</string>
+                        <string>pfx</string>
                     </dict>
                 </dict>
             </array>
