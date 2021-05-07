@@ -22,7 +22,7 @@
     xmlns:rim="http://www.blackberry.com/ns/widgets"
     xmlns:android="http://schemas.android.com/apk/res/android"
     id="cordova-plugin-client-certificate-support"
-    version="0.0.5-dev">
+    version="0.0.5">
 
     <name>Client certificate authentication support</name>
 
