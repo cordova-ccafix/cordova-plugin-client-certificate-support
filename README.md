@@ -62,7 +62,7 @@ Create a new Cordova Project
 Install the plugin, for example:
 
     $ cd hello
-    $ cordova plugin add https://github.com/mwaylabs/cordova-plugin-client-certificate
+    $ cordova plugin add https://github.com/cordova-ccafix/cordova-plugin-client-certificate-support
 
 Install File API plugin:
 
