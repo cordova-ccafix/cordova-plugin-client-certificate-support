@@ -1,7 +1,7 @@
 {
     "name": "cordova-plugin-client-certificate-support",
     "description": "Client certificate authentication support plugin for your Cordova app.",
-    "version": "0.0.5",
+    "version": "0.0.6-dev",
     "homepage": "https://github.com/cordova-ccafix/cordova-plugin-client-certificate-support",
     "repository": {
         "type": "git",
