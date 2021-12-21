@@ -117,7 +117,10 @@ static ClientCertificate * mydelegate = NULL;
 - (void)customHTTPProtocol:(CustomHTTPProtocol *)protocol didReceiveAuthenticationChallenge:(NSURLAuthenticationChallenge *)challenge
 {
     // ---
-    NSLog(@"XXX TODO XXX XXX");
+    [self didReceiveAuthenticationChallenge:challenge completionHandler:^(NSURLSessionAuthChallengeDisposition _, NSURLCredential * credential){
+        // ---
+        [protocol resolveAuthenticationChallenge:challenge withCredential:credential];
+    }];
 }
 
 - (void) didReceiveAuthenticationChallenge:(NSURLAuthenticationChallenge *)challenge completionHandler:(void (^)(NSURLSessionAuthChallengeDisposition, NSURLCredential * _Nullable))completionHandler
