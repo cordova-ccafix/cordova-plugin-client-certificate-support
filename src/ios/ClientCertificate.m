@@ -116,6 +116,18 @@ static ClientCertificate * mydelegate = NULL;
 
 - (void)customHTTPProtocol:(CustomHTTPProtocol *)protocol didReceiveAuthenticationChallenge:(NSURLAuthenticationChallenge *)challenge
 {
+    // ---
+    NSLog(@"XXX TODO XXX XXX");
+}
+
+- (void) didReceiveAuthenticationChallenge:(NSURLAuthenticationChallenge *)challenge completionHandler:(void (^)(NSURLSessionAuthChallengeDisposition, NSURLCredential * _Nullable))completionHandler
+{
+    // ---
+    NSLog(@"^^^^ client cert auth plugin did receive auth challenge");
+
+//    // XXX TBD XXX
+//    completionHandler(NSURLSessionAuthChallengePerformDefaultHandling, nil);
+
     if([challenge previousFailureCount] == 0) {
 
         NSURLCredential *credential = nil;
@@ -160,8 +172,11 @@ static ClientCertificate * mydelegate = NULL;
 
         }
 
-        [protocol resolveAuthenticationChallenge:challenge withCredential:credential];
+        // [protocol resolveAuthenticationChallenge:challenge withCredential:credential];
 
+        // ---
+        NSLog(@"using credential to resolve auth challenge");
+        completionHandler(NSURLSessionAuthChallengeUseCredential, credential);
     }
 }
 
