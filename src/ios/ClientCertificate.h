@@ -28,6 +28,8 @@
 - (void)registerAuthenticationCertificate:(CDVInvokedUrlCommand*)command;
 - (void)validateSslChain:(CDVInvokedUrlCommand*)command;
 
++ (void) didReceiveAuthenticationChallenge:(NSURLAuthenticationChallenge *)challenge completionHandler:(void (^)(NSURLSessionAuthChallengeDisposition, NSURLCredential * _Nullable))completionHandler withOptionsNullable:(NSObject *) options;
+
 + (void)registerCertificateFromPath:(NSString*)path withPassword:(NSString*)password;
 
 @end

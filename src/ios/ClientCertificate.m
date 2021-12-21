@@ -116,14 +116,21 @@ static ClientCertificate * mydelegate = NULL;
 
 - (void)customHTTPProtocol:(CustomHTTPProtocol *)protocol didReceiveAuthenticationChallenge:(NSURLAuthenticationChallenge *)challenge
 {
-    // ---
-    [self didReceiveAuthenticationChallenge:challenge completionHandler:^(NSURLSessionAuthChallengeDisposition _, NSURLCredential * credential){
+    // support cordova-ios pre-6.x with UIWebView
+    [ClientCertificate didReceiveAuthenticationChallenge:challenge completionHandler:^(NSURLSessionAuthChallengeDisposition _, NSURLCredential * credential){
         // ---
         [protocol resolveAuthenticationChallenge:challenge withCredential:credential];
-    }];
+    } withOptionsNullable:nil];
 }
 
 - (void) didReceiveAuthenticationChallenge:(NSURLAuthenticationChallenge *)challenge completionHandler:(void (^)(NSURLSessionAuthChallengeDisposition, NSURLCredential * _Nullable))completionHandler
+{
+    // works with this proposal:
+    // https://github.com/apache/cordova-ios/pull/1212
+    [ClientCertificate didReceiveAuthenticationChallenge:challenge completionHandler:completionHandler withOptionsNullable:nil];
+}
+
++ (void) didReceiveAuthenticationChallenge:(NSURLAuthenticationChallenge *)challenge completionHandler:(void (^)(NSURLSessionAuthChallengeDisposition, NSURLCredential * _Nullable))completionHandler withOptionsNullable:(NSObject *) _optionsIgnored
 {
     // ---
     NSLog(@"^^^^ client cert auth plugin did receive auth challenge");
