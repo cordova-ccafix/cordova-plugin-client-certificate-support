@@ -116,6 +116,23 @@ static ClientCertificate * mydelegate = NULL;
 
 - (void)customHTTPProtocol:(CustomHTTPProtocol *)protocol didReceiveAuthenticationChallenge:(NSURLAuthenticationChallenge *)challenge
 {
+    // support cordova-ios pre-6.x with UIWebView
+    [ClientCertificate didReceiveAuthenticationChallenge:challenge completionHandler:^(NSURLSessionAuthChallengeDisposition _, NSURLCredential * credential){
+        [protocol resolveAuthenticationChallenge:challenge withCredential:credential];
+    } withOptionsNullable:nil];
+}
+
+- (void) didReceiveAuthenticationChallenge:(NSURLAuthenticationChallenge *)challenge completionHandler:(void (^)(NSURLSessionAuthChallengeDisposition, NSURLCredential * _Nullable))completionHandler
+{
+    // works with cordova-ios & WKWebView with update proposed in:
+    // - https://github.com/apache/cordova-ios/pull/1212
+    // - https://github.com/brodybits/cordova-ios/tree/auth-challenge-callback-support
+    [ClientCertificate didReceiveAuthenticationChallenge:challenge completionHandler:completionHandler withOptionsNullable:nil];
+}
+
++ (void) didReceiveAuthenticationChallenge:(NSURLAuthenticationChallenge *)challenge completionHandler:(void (^)(NSURLSessionAuthChallengeDisposition, NSURLCredential * _Nullable))completionHandler withOptionsNullable:(NSObject *) _optionsIgnored
+{
+    // now exposed as a static method usable by @brodybits/cordova-plugin-ios-xhr
     if([challenge previousFailureCount] == 0) {
 
         NSURLCredential *credential = nil;
@@ -160,8 +177,7 @@ static ClientCertificate * mydelegate = NULL;
 
         }
 
-        [protocol resolveAuthenticationChallenge:challenge withCredential:credential];
-
+        completionHandler(NSURLSessionAuthChallengeUseCredential, credential);
     }
 }
 
