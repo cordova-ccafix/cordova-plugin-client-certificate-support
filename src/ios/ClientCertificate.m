@@ -118,7 +118,6 @@ static ClientCertificate * mydelegate = NULL;
 {
     // support cordova-ios pre-6.x with UIWebView
     [ClientCertificate didReceiveAuthenticationChallenge:challenge completionHandler:^(NSURLSessionAuthChallengeDisposition _, NSURLCredential * credential){
-        // ---
         [protocol resolveAuthenticationChallenge:challenge withCredential:credential];
     } withOptionsNullable:nil];
 }
@@ -132,12 +131,6 @@ static ClientCertificate * mydelegate = NULL;
 
 + (void) didReceiveAuthenticationChallenge:(NSURLAuthenticationChallenge *)challenge completionHandler:(void (^)(NSURLSessionAuthChallengeDisposition, NSURLCredential * _Nullable))completionHandler withOptionsNullable:(NSObject *) _optionsIgnored
 {
-    // ---
-    NSLog(@"^^^^ client cert auth plugin did receive auth challenge");
-
-//    // XXX TBD XXX
-//    completionHandler(NSURLSessionAuthChallengePerformDefaultHandling, nil);
-
     if([challenge previousFailureCount] == 0) {
 
         NSURLCredential *credential = nil;
@@ -182,10 +175,6 @@ static ClientCertificate * mydelegate = NULL;
 
         }
 
-        // [protocol resolveAuthenticationChallenge:challenge withCredential:credential];
-
-        // ---
-        NSLog(@"using credential to resolve auth challenge");
         completionHandler(NSURLSessionAuthChallengeUseCredential, credential);
     }
 }
